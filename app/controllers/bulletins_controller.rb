@@ -1,4 +1,4 @@
-class BulletinsController < ApplicationControlle
+class BulletinsController < ApplicationController
 
   before_action :find_bulletin, :only => [ :show, :edit, :update ]
 
