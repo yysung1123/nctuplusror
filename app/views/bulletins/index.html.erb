@@ -1,0 +1,6 @@
+<h1>Welcome!</h1>
+<p>這是公佈欄</p>
+<% @bulletins.each do |b| %>
+  <%= b.content %>
+<% end %>
+<%= link_to "新增公告", new_bulletin_path %>
