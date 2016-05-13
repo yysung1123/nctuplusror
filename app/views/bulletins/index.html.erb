@@ -1,6 +1,19 @@
 <h1>Welcome!</h1>
 <p>這是公佈欄</p>
-<% @bulletins.each do |b| %>
-  <%= b.content %>
-<% end %>
+<table>
+  <thead>
+    <tr>
+      <td>公告</td>
+      <td>時間</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bulletins.each do |b| %>
+    <tr>
+      <td><%= b.content %></td>
+      <td><%= b.updated_at %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 <%= link_to "新增公告", new_bulletin_path %>
