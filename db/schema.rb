@@ -14,7 +14,8 @@
 ActiveRecord::Schema.define(version: 20160507183816) do
 
   create_table "bulletins", force: :cascade do |t|
-    t.string   "content"
+    t.text     "content"
+    t.date     "post_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

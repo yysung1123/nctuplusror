@@ -1,5 +1,5 @@
 <h1>Welcome!</h1>
-<p>這是公佈欄</p>
+<h1>公佈欄</h1>
 <table class="table">
   <thead>
     <tr>
@@ -11,9 +11,10 @@
     <% @bulletins.each do |b| %>
     <tr>
       <td><%= b.content %></td>
-      <td><%= b.updated_at %></td>
+      <td><%= b.post_time %></td>
+      <td><%= button_to "刪除", bulletin_path(b), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-danger" %>
     </tr>
     <% end %>
   </tbody>
 </table>
-<%= link_to "新增公告", new_bulletin_path %>
+<%= link_to "新增公告", new_bulletin_path, :class => "btn btn-primary" %>

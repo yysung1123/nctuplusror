@@ -1,9 +1,9 @@
 class BulletinsController < ApplicationController
 
-  before_action :find_bulletin, :only => [ :show, :edit, :update ]
+  before_action :find_bulletin, :only => [ :show, :edit, :update, :destroy ]
 
   def index
-    @bulletins = Bulletin.all
+    @bulletins = Bulletin.before_today.order(post_time: :desc).first(5)
   end
 
   def new
@@ -27,9 +27,14 @@ class BulletinsController < ApplicationController
     redirect_to bulletins_path
   end
 
+  def destroy
+    @bulletin.destroy
+    redirect_to bulletins_path
+  end
+
   private
   def bulletin_params
-    params.require(:bulletin).permit(:content)
+    params.require(:bulletin).permit(:content, :post_time)
   end
 
   def find_bulletin
