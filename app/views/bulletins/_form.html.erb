@@ -1,5 +1,7 @@
-<%= simple_form_for @bulletin do |f| %>
-  <%= f.input :content, label: "內容" %>
-  <%= f.input :post_time, label: "發文時間" %>
-  <%= f.submit "送出", :class => "btn btn-primary" %>
-<% end %>
+<div class="col-md-6">
+  <%= simple_form_for @bulletin do |f| %>
+    <%= f.input :content, label: "內容" %>
+    <%= f.input :post_time, label: "發文時間", :as => :date_picker %>
+    <%= f.submit "送出", :class => "btn btn-primary" %>
+  <% end %>
+</div>
