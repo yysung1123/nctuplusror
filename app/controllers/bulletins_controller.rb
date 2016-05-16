@@ -13,7 +13,7 @@ class BulletinsController < ApplicationController
   def create
     @bulletin = Bulletin.new(bulletin_params)
     if @bulletin.save
-      redirect_to bulletins_path
+      redirect_to root_path
     else
       render :new
     end
@@ -24,17 +24,17 @@ class BulletinsController < ApplicationController
 
   def update
     @bulletin.update(bulletin_params)
-    redirect_to bulletins_path
+    redirect_to root_path
   end
 
   def destroy
     @bulletin.destroy
-    redirect_to bulletins_path
+    redirect_to root_path
   end
 
   private
   def bulletin_params
-    params.require(:bulletin).permit(:content, :post_time)
+    params.require(:bulletin).permit(:content, :post_time, :bulletin_type)
   end
 
   def find_bulletin

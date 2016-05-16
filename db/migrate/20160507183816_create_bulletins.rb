@@ -1,8 +1,9 @@
 class CreateBulletins < ActiveRecord::Migration
   def change
     create_table :bulletins do |t|
-      t.text :content
+      t.string :content
       t.date :post_time
+      t.boolean :bulletin_type
       t.timestamps null: false
     end
   end

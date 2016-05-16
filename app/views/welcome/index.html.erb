@@ -4,26 +4,10 @@
 </ul>
 <div class="tab-content">
   <div id="news" class="tab-pane fade in active">
-    <table class="table">
-      <thead>
-        <tr>
-          <td>公告</td>
-          <td>時間</td>
-        </tr>
-      </thead>
-      <tbody>
-        <% @bulletins.each do |b| %>
-        <tr>
-          <td><%= b.content %></td>
-          <td><%= b.post_time %></td>
-          <td><%= button_to "刪除", bulletin_path(b), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-danger" %></td>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <%= render 'table', :bulletin => @news %>
   </div>
   <div id="update" class="tab-pane fade">
-    <p>實作中</p>
+    <%= render 'table', :bulletin => @updates %>
   </div>
 </div>
 <%= link_to "新增公告", new_bulletin_path, :class => "btn btn-primary" %>
