@@ -1,0 +1,17 @@
+<table class="table">
+  <thead>
+    <tr>
+      <td>公告</td>
+      <td>時間</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% bulletin.each do |b| %>
+    <tr>
+      <td><%= b.content %></td>
+      <td><%= b.post_time %></td>
+      <td><%= button_to "刪除", bulletin_path(b), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-danger" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
