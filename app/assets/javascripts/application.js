@@ -17,4 +17,5 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require pickers
+//= require moment/zh-tw
 //= require_tree .
