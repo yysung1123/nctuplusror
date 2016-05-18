@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+    <tr>
+      <td>公告</td>
+      <td>時間</td>
+      <td>發文者</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% bulletin.each do |b| %>
+    <tr>
+      <td><%= b.content %></td>
+      <td><%= b.post_time %></td>
+      <td><%= b.user.username %></td>
+      <td><%= link_to "更新", edit_bulletin_path(b), :class => "btn btn-warning" %>
+      <td><%= button_to "刪除", bulletin_path(b), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-danger" %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
