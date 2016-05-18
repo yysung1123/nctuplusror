@@ -10,7 +10,6 @@
     <tr>
       <td><%= b.content %></td>
       <td><%= b.post_time %></td>
-      <td><%= button_to "刪除", bulletin_path(b), :method => :delete, :data => { :confirm => "Are you sure?" }, :class => "btn btn-danger" %></td>
     </tr>
     <% end %>
   </tbody>
