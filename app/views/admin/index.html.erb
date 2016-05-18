@@ -1,0 +1,27 @@
+<% if user_signed_in? and current_user.admin? %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a data-toggle="pill" href="#all">全部公告</a></li>
+        <li><a data-toggle="pill" href="#news">最新消息</a></li>
+        <li><a data-toggle="pill" href="#update">網站改版</a></li>
+      </ul>
+      <%= link_to "新增公告", new_bulletin_path, :class => "btn btn-lg btn-primary", :style => "margin-top:40px;" %>
+    </div>
+    <div class="col-md-9">
+      <div class="tab-content">
+        <div id="all" class="tab-pane fade in active">
+          <%= render 'table', :bulletin => @all %>
+        </div>
+        <div id="news" class="tab-pane fade">
+          <%= render 'table', :bulletin => @news %>
+        </div>
+        <div id="update" class="tab-pane fade">
+          <%= render 'table', :bulletin => @updates %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
