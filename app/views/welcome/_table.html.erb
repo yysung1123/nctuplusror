@@ -9,7 +9,7 @@
     <% bulletin.each do |b| %>
     <tr>
       <td><%= b.content %></td>
-      <td><%= b.post_time %></td>
+      <td><%= b.post_time.to_date %></td>
     </tr>
     <% end %>
   </tbody>
