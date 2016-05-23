@@ -1,5 +1,6 @@
 class BulletinsController < ApplicationController
 
+  before_action :authfication, :only => [ :new, :create, :edit, :update, :destroy ]
   before_action :find_bulletin, :only => [ :show, :edit, :update, :destroy ]
 
   def index
@@ -44,5 +45,9 @@ class BulletinsController < ApplicationController
 
   def find_bulletin
     @bulletin = Bulletin.find(params[:id])
+  end
+
+  def authfication
+    redirect_to root_path if current_user.nil? or not current_user.admin
   end
 end
